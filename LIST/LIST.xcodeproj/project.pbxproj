@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0EC6AB93232687FF002681A1 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6AB92232687FF002681A1 /* main.c */; };
 		0EC6AB9B2326A95C002681A1 /* LinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6AB9A2326A95C002681A1 /* LinkedList.c */; };
-		0EC6ABA02326AA73002681A1 /* DoubleLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6AB9F2326AA73002681A1 /* DoubleLinkedList.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,8 +28,6 @@
 		0EC6AB92232687FF002681A1 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		0EC6AB992326A8FB002681A1 /* LinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkedList.h; sourceTree = "<group>"; };
 		0EC6AB9A2326A95C002681A1 /* LinkedList.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = LinkedList.c; sourceTree = "<group>"; };
-		0EC6AB9E2326AA06002681A1 /* DoubleLinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoubleLinkedList.h; sourceTree = "<group>"; };
-		0EC6AB9F2326AA73002681A1 /* DoubleLinkedList.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = DoubleLinkedList.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +60,6 @@
 		0EC6AB91232687FF002681A1 /* LIST */ = {
 			isa = PBXGroup;
 			children = (
-				0EC6AB9D2326A9C1002681A1 /* Double Linked List */,
 				0EC6AB9C2326A9B8002681A1 /* Linked List */,
 				0EC6AB92232687FF002681A1 /* main.c */,
 			);
@@ -77,15 +73,6 @@
 				0EC6AB9A2326A95C002681A1 /* LinkedList.c */,
 			);
 			path = "Linked List";
-			sourceTree = "<group>";
-		};
-		0EC6AB9D2326A9C1002681A1 /* Double Linked List */ = {
-			isa = PBXGroup;
-			children = (
-				0EC6AB9E2326AA06002681A1 /* DoubleLinkedList.h */,
-				0EC6AB9F2326AA73002681A1 /* DoubleLinkedList.c */,
-			);
-			path = "Double Linked List";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,7 +131,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EC6ABA02326AA73002681A1 /* DoubleLinkedList.c in Sources */,
 				0EC6AB93232687FF002681A1 /* main.c in Sources */,
 				0EC6AB9B2326A95C002681A1 /* LinkedList.c in Sources */,
 			);
