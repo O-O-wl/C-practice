@@ -98,7 +98,6 @@ char* convertToPostfix(char* infixExpression) {
     int start = 0;
     int contextDepth = 0;
     int len = (int)strlen(infixExpression) * sizeof(char);
-    printf("길이 : %d, %s\n", len, infixExpression);
     char* result = (char*)malloc(len);
     LinkedListStack *operators = createStack();
     Node* operator;
@@ -147,7 +146,6 @@ char* convertToPostfix(char* infixExpression) {
 }
 
 double calculate(char* postfixExpression) {
-    printf("%s\n",postfixExpression);
     enum Type type = NONE;
     int start = 0;
     char operator;
@@ -158,23 +156,16 @@ double calculate(char* postfixExpression) {
     Node* newNode;
     while (len>start) {
         char* token = nextToken(postfixExpression, &start, &type);
-        
-        printf("token: %s, type: %d\n",token, type);
         switch (type) {
             case OPERAND:
                 newNode = createNode(token);
-                printf("push: %s \n",token);
                 push(operands, newNode);
                 break;
             case OPERATOR:
                 operator = *token;
-                
-                printf("%c\n",operator);
                 if (operands->count == 0 ) { break; }
                 operand2 = atof(pop(operands)->data);
                 operand1 = atof(pop(operands)->data);
-                printf("pop op1: %f \n",operand1);
-                printf("pop op2: %f \n",operand2);
                 switch (operator) {
                     case '+':
                         tempResult = operand1 + operand2;
@@ -191,11 +182,8 @@ double calculate(char* postfixExpression) {
                     default:
                         break;
                 }
-                printf("결과 push: %f \n", tempResult);
                 sprintf(result, "%f", tempResult);
                 push(operands, createNode(result));
-                
-                
                 break;
             default:
                 break;
