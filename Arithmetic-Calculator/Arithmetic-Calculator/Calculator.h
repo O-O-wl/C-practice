@@ -22,4 +22,5 @@ char* convertToPostfix(char* infixExpression);
 double calculate(char* postfixExpression);
 char* nextToken(char* expression, int *start, enum Type *type);
 int isNumber(char c);
+int isOperator(char c);
 #endif /* Calculator_h */

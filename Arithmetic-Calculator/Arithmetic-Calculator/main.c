@@ -12,30 +12,9 @@
 #include "string.h"
 int main(int argc, const char * argv[]) {
     
-    //    LinkedListStack* stack = createStack();
-    //    push(stack, createNode("hello"));
-    //    push(stack, createNode("world"));
-    //    push(stack, createNode("c"));
-    //    push(stack, createNode("x-code"));
-    //    printf("%s\n",pop(stack)->data);
-    //    printf("%s\n",pop(stack)->data);
-    //    printf("%s\n",pop(stack)->data);
-    //    printf("%s\n",pop(stack)->data);
-    
-//    char* expression = "1 + 3.3334 / ( 4.26 * ( 110 - 7729 ) )";
-//    char* postfix = convertToPostfix(expression);
-//    printf("%s\n",postfix);
-//    printf("1  3.3334   4.26   110  7729  -*/+\n");
-//    
-//    char* expression2 = "3 + (3 * 2) + 5";
-//    char* postfix2 = convertToPostfix(expression2);
-//    printf("%s\n",postfix2);
-//    printf("3 3 2 * + 5 +\n");
-//
-    // 6 + 3 + 5 = 14
-    char* ee  = "3 3 2 * + 5 +";
-    double r = calculate(ee);
+    char* expression = "1 + 3.3334 / ( 4.26 * ( 110 - 7729 ) )";
+    char* postfix = convertToPostfix(expression);
+    double r = calculate(postfix);
     printf("%f\n", r);
     return 0;
-    
 }
