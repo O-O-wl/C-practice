@@ -9,7 +9,7 @@
 #include "LinkedListStack.h"
 #include "string.h"
 #include "stdlib.h"
-
+#include "stdio.h"
 Node* createNode(char* data) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->data = data;
@@ -70,6 +70,7 @@ void show(LinkedListStack* stack) {
     Node* current = stack->nodes;
     int i = 0;
     while (current != NULL) {
+        printf("%s\n",current->data);
         current = current->nextNode;
     }
 }

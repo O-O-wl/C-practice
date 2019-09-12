@@ -93,13 +93,13 @@ char* convertToPostfix(char* infixExpression) {
     while (type != EOL) {
         char* token = nextToken(infixExpression, &start, &type);
         
-//        EOL = -1,
-//        NONE = 0,
-//        OPERAND = 1,
-//        OPERATOR = 2,
-//        WHITE_SPACE = 3,
-//        OPEN_BRAKET = 4,
-//        CLOSE_BRAKET = 5
+        //        EOL = -1,
+        //        NONE = 0,
+        //        OPERAND = 1,
+        //        OPERATOR = 2,
+        //        WHITE_SPACE = 3,
+        //        OPEN_BRAKET = 4,
+        //        CLOSE_BRAKET = 5
         switch (type) {
             case EOL:
                 break;
@@ -134,7 +134,7 @@ char* convertToPostfix(char* infixExpression) {
         int operatorLen = (int)strlen(data);
         for(int i=0;i<operatorLen;i++) {
             result[index++] = data[i];
-        } 
+        }
     }
     return result;
 }
@@ -142,7 +142,48 @@ char* convertToPostfix(char* infixExpression) {
 double calculate(char* postfixExpression) {
     enum Type type = NONE;
     int start = 0;
-    
-    char* token = nextToken(postfixExpression, &start, &type);
-    return 0;
+    char operator;
+    int len = (int)strlen(postfixExpression);
+    LinkedListStack* operands = createStack();
+    double operand1,operand2, tempResult;
+    char* result;
+    Node* newNode;
+    while (len>start) {
+        char* token = nextToken(postfixExpression, &start, &type);
+        switch (type) {
+                
+            case OPERAND:
+                newNode = createNode(token);
+                push(operands, newNode);
+                break;
+            case OPERATOR:
+                operator = *token;
+                operand1 = atof(pop(operands)->data);
+                printf("c = %f\n",operand1);
+                operand2 = atof(pop(operands)->data);
+                printf("c = %f\n",operand2);
+                switch (operator) {
+                    case '+':
+                        tempResult = operand1 + operand2;
+                        break;
+                    case '-':
+                        tempResult = operand1 - operand2;
+                        break;
+                    case '*':
+                        tempResult = operand1 * operand2;
+                        break;
+                    case '/':
+                        tempResult = operand1 / operand2;
+                        break;
+                    default:
+                        break;
+                }
+                gcvt(tempResult, 10, result);
+                push(operands, createNode(result));
+                break;
+            default:
+                break;
+        }
+    }
+    return atof(pop(operands)->data);
 }
