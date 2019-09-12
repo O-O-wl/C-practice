@@ -20,11 +20,13 @@ Node* createNode(char* data);
 typedef struct tagStack {
     Node* top;
     Node* nodes;
+    int count;
 } LinkedListStack;
 
 LinkedListStack* createStack(void);
 void push(LinkedListStack* stack, Node* newNode);
 Node* pop(LinkedListStack* stack);
+
 void show(LinkedListStack* stack);
 
 #endif /* LinkedListStack_h */

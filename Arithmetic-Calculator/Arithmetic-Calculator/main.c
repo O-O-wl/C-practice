@@ -9,33 +9,32 @@
 #include <stdio.h>
 #include "LinkedListStack.h"
 #include "Calculator.h"
+#include "string.h"
 int main(int argc, const char * argv[]) {
     
-//    LinkedListStack* stack = createStack();
-//    push(stack, createNode("hello"));
-//    push(stack, createNode("world"));
-//    push(stack, createNode("c"));
-//    push(stack, createNode("x-code"));
-//    show(stack);
+    //    LinkedListStack* stack = createStack();
+    //    push(stack, createNode("hello"));
+    //    push(stack, createNode("world"));
+    //    push(stack, createNode("c"));
+    //    push(stack, createNode("x-code"));
+    //    printf("%s\n",pop(stack)->data);
+    //    printf("%s\n",pop(stack)->data);
+    //    printf("%s\n",pop(stack)->data);
+    //    printf("%s\n",pop(stack)->data);
     
-    char* expression = "33 * ( 31.04 + 4 )";
-    int type = -1;
-    int init = 0;
-    int* start = &init;
-    char* token = nextToken(expression, start, &type);
-    printf("%s, %d\n",token,type);
-    char* token2 = nextToken(expression, start, &type);
-    printf("%s, %d\n",token2,type);
-    char* token3 = nextToken(expression, start, &type);
-    printf("%s, %d\n",token3,type);
-    char* token4 = nextToken(expression, start, &type);
-    printf("%s, %d\n",token4,type);
-    char* token5 = nextToken(expression, start, &type);
-    printf("%s, %d\n",token5,type);
-    char* token6 = nextToken(expression, start, &type);
-    printf("%s, %d\n",token6,type);
-    char* token7 = nextToken(expression, start, &type);
-    printf("%s, %d\n",token7,type);
+    char* expression = "1 + 3.3334 / ( 4.26 * ( 110 - 7729 ) )";
+    char* postfix = convertToPostfix(expression);
+    printf("%s\n",postfix);
+    printf("1  3.3334   4.26   110  7729  -*/+\n");
     
+    char* expression2 = "3 + (3 * 2) + 5";
+    char* postfix2 = convertToPostfix(expression2);
+    printf("%s\n",postfix2);
+    printf("3 3 2 * + 5 +\n");
+    
+    char* ee  = "3 3 2 * + 5 +";
+    double r = calculate(ee);
+    printf("%f\n", r);
     return 0;
+    
 }

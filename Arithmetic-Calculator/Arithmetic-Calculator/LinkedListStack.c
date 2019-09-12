@@ -21,6 +21,7 @@ LinkedListStack* createStack(void) {
     LinkedListStack* stack = (LinkedListStack*)malloc(sizeof(LinkedListStack));
     stack->top = NULL;
     stack->nodes = NULL;
+    stack->count = 0;
     return stack;
 }
 
@@ -34,30 +35,41 @@ void push(LinkedListStack* stack, Node* newNode) {
     else {
         Node* tail = *head;
         while (tail->nextNode != NULL) {
-           tail = tail->nextNode;
+            tail = tail->nextNode;
         }
         tail->nextNode = newNode;
         stack->top = newNode;
     }
+    stack->count++;
     
 }
 
 Node* pop(LinkedListStack* stack) {
     Node* tail = stack->nodes;
-    while (tail->nextNode == stack->top) {
-        tail = tail->nextNode;
+    if (tail == stack->top) {
+        Node* popped = tail;
+        stack->nodes = NULL;
+        stack->count--;
+        return popped;
     }
-    Node* popped = stack->top;
-    tail->nextNode = NULL;
-    stack->top = tail;
-    return popped;
+    else {
+        while (tail->nextNode != stack->top) {
+            tail = tail->nextNode;
+        }
+        
+        Node* popped = stack->top;
+        tail->nextNode = NULL;
+        stack->top = tail;
+        
+        stack->count--;
+        return popped;
+    }
 }
 
 void show(LinkedListStack* stack) {
     Node* current = stack->nodes;
     int i = 0;
     while (current != NULL) {
-        printf("%d, %s\n",i++, current->data);
         current = current->nextNode;
     }
 }

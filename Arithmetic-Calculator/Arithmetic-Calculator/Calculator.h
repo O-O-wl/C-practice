@@ -8,9 +8,18 @@
 
 #ifndef Calculator_h
 #define Calculator_h
+enum Type {
+    EOL = -1,
+    NONE = 0,
+    OPERAND = 1,
+    OPERATOR = 2,
+    WHITE_SPACE = 3,
+    OPEN_BRAKET = 4,
+    CLOSE_BRAKET = 5
+};
 
 char* convertToPostfix(char* infixExpression);
 double calculate(char* postfixExpression);
-char* nextToken(char* expression, int *start, int *type);
+char* nextToken(char* expression, int *start, enum Type *type);
 int isNumber(char c);
 #endif /* Calculator_h */
