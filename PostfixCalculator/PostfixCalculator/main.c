@@ -12,7 +12,7 @@
 #include "string.h"
 
 int main(int argc, const char * argv[]) {
-    char* expression = "132*-";
+    char* expression = "132*-3+3*9+";
     double result = calculate(expression);
 
     printf("%f\n", result);
