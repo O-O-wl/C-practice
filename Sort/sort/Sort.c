@@ -8,6 +8,7 @@
 
 #include "Sort.h"
 #include "stdio.h"
+#include "stdlib.h"
 
 void swap(int* a, int* b) {
     
@@ -19,11 +20,27 @@ void swap(int* a, int* b) {
     
 }
 
-void bubbleSort(int array[], int n) {
-    for(int i=n-1; i>=0; i--) {
+void bubbleSort(int array[], int size) {
+    for(int i=size-1; i>=0; i--) {
         for(int j=0; j<i; j++) {
             if(array[j]>array[j+1]) {
                 swap(&array[j], &array[j+1]);
+            }
+        }
+    }
+}
+
+void insertionSort(int array[], int size) {
+    int target;
+    for(int i=0; i<size; i++) {
+        target = array[i];
+        for (int j=i-1; j>=0; j--) {
+            if (array[j] > target) {
+                array[j+1] = array[j];
+            }
+            else {
+                array[j+1] = target;
+                break;
             }
         }
     }

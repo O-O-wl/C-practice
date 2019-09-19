@@ -9,6 +9,7 @@
 #ifndef Sort_h
 #define Sort_h
 
-void bubbleSort(int array[], int n);
+void bubbleSort(int array[], int size);
+void insertionSort(int array[], int size);
 void swap(int* a, int* b);
 #endif /* Sort_h */
